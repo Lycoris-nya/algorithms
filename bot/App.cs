@@ -16,7 +16,7 @@ namespace bot
             while (true)
             {
                 var state = reader.ReadState(init);
-                var timer = new Countdown(first ? 500 : 50); //TODO fix timeouts
+                var timer = new Countdown(first ? 1000 : 50); //TODO fix timeouts
                 reader.FlushToStdErr();
                 var command = solver.GetCommand(state, timer);
                 Console.WriteLine(command);
