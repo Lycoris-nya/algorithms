@@ -6,4 +6,5 @@ namespace bot
     public record WAIT() : BotCommand;
     public record REST() : BotCommand;
     public record CAST(int id) : BotCommand;
+    public record LEARN(int id) : BotCommand;
 }

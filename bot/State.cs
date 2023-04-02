@@ -20,18 +20,17 @@ namespace bot
             Recipes = recipes;
             LearnSpells = learnSpells;
         }
-
     }
 
     public class Recipe
     {
         public readonly int Price;
-        public readonly List<int> Ingredients;
+        public readonly Ingredients Ingredients;
         public readonly int Id;
         public readonly int Bonus;
         public readonly int BonusTimesCount;
 
-        public Recipe(int id, int price, List<int> ingredients, int bonus, int bonusTimesCount)
+        public Recipe(int id, int price, Ingredients ingredients, int bonus, int bonusTimesCount)
         {
             Price = price;
             Ingredients = ingredients;
@@ -40,15 +39,15 @@ namespace bot
             BonusTimesCount = bonusTimesCount;
         }
     }
-    
+
     public class Cast
     {
         public readonly bool Castable;
-        public readonly List<int> Ingredients;
+        public readonly Ingredients Ingredients;
         public readonly int Id;
         public readonly bool Repeatable;
 
-        public Cast(int id, bool castable, List<int> ingredients,bool repeatable)
+        public Cast(int id, bool castable, Ingredients ingredients, bool repeatable)
         {
             Castable = castable;
             Ingredients = ingredients;
@@ -60,12 +59,12 @@ namespace bot
     public class LearnSpell
     {
         public readonly int Id;
-        public readonly List<int> Ingredients;
+        public readonly Ingredients Ingredients;
         public readonly bool Repeatable;
         public readonly int Index;
         public readonly int Taxed;
 
-        public LearnSpell(int id, List<int> ingredients, bool repeatable, int index, int taxed)
+        public LearnSpell(int id, Ingredients ingredients, bool repeatable, int index, int taxed)
         {
             Id = id;
             Ingredients = ingredients;
@@ -78,13 +77,29 @@ namespace bot
     public class WitchState
     {
         public int Rupees;
-        public readonly List<int> Ingredients;
+        public readonly Ingredients Ingredients;
         public List<Cast> Casts;
 
-        public WitchState(int rupees, List<int> ingredients)
+        public WitchState(int rupees, Ingredients ingredients)
         {
             Rupees = rupees;
             Ingredients = ingredients;
+        }
+    }
+
+    public struct Ingredients
+    {
+        public readonly int Zero;
+        public readonly int One;
+        public readonly int Two;
+        public readonly int Three;
+
+        public Ingredients(int zero, int one, int two, int three)
+        {
+            Zero = zero;
+            One = one;
+            Two = two;
+            Three = three;
         }
     }
 }
